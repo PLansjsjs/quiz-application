@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Awareness Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #1c52db;
+            margin: 0;
+            padding: 20px;
+        }
+        .quiz-container {
+            background: rgb(22, 147, 193);
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        .option {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background: rgb(142, 226, 228);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+        }
+        .correct {
+            background-color: lightgreen !important;
+        }
+        .wrong {
+            background-color: lightcoral !important;
+        }
+        #next-btn, #retry-btn {
+            display: none;
+            margin-top: 15px;
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .results-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10;
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+        }
+        canvas {
+            background: white;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .download-btn {
+            margin-top: 10px;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+  
+<body>
+    <div class="quiz-container">
+        <h2 id="question">Question text here</h2>
+        <div id="options-container"></div>
+        <button id="next-btn">Next Question</button>
+        <button id="retry-btn">Retry Quiz</button>
+    </div>
+
+    <div class="results-container" id="results">
+        <h1>Quiz Results</h1>
+        <p id="score-text"></p>
+        <canvas id="barChart" width="400" height="200"></canvas>
+        <canvas id="pieChart" width="200" height="200"></canvas>
+        <button class="download-btn" onclick="downloadResults()">Download Results</button>
+        <button class="download-btn" onclick="retryQuiz()">Retry Quiz</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Awareness Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #1c52db;
+            margin: 0;
+            padding: 20px;
+        }
+        .quiz-container {
+            background: rgb(22, 147, 193);
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        .option {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background: rgb(142, 226, 228);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+        }
+        .correct {
+            background-color: lightgreen !important;
+        }
+        .wrong {
+            background-color: lightcoral !important;
+        }
+        #next-btn, #retry-btn {
+            display: none;
+            margin-top: 15px;
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .results-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10;
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+        }
+        canvas {
+            background: white;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .download-btn {
+            margin-top: 10px;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2 id="question">Question text here</h2>
+        <div id="options-container"></div>
+        <button id="next-btn">Next Question</button>
+        <button id="retry-btn">Retry Quiz</button>
+    </div>
+
+    <div class="results-container" id="results">
+        <h1>Quiz Results</h1>
+        <p id="score-text"></p>
+        <canvas id="barChart" width="400" height="200"></canvas>
+        <canvas id="pieChart" width="200" height="200"></canvas>
+        <button class="download-btn" onclick="downloadResults()">Download Results</button>
+        <button class="download-btn" onclick="retryQuiz()">Retry Quiz</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
